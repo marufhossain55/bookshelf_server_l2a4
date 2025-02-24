@@ -11,7 +11,6 @@ shurjopay.config(
   config.sp.sp_prefix!,
   config.sp.sp_return_url!
 );
-// console.log(shurjopay,"shurjopay");
 
 const makePaymentAsync = async (
   paymentPayload: any
