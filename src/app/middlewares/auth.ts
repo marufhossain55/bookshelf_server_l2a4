@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import config from '../config';
 import AppError from '../Errors/appError';
-import User from '../modules/user/user.mode';
+import User from '../modules/user/user.model';
 import catchAsync from '../utils/catchAsync';
 import { TUserRole } from './../modules/auth/auth.Validation';
 const auth = (...requiredRoles: TUserRole[]) => {
