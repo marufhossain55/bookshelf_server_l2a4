@@ -47,13 +47,15 @@ const login = async (payload: { email: string; password: string }) => {
   const accessToken = createToken(
     jwtPayload,
     config.jwt_access_secret as string,
-    config.jwt_access_expires_in as string
+    // config.jwt_access_expires_in as string
+    Number(config.jwt_access_expires_in)
   );
 
   const refreshToken = createToken(
     jwtPayload,
     config.jwt_refresh_secret as string,
-    config.jwt_refresh_expires_in as string
+    // config.jwt_refresh_expires_in as string
+    Number(config.jwt_access_expires_in)
   );
 
   return { accessToken, refreshToken, user };
@@ -135,7 +137,8 @@ const refreshToken = async (token: string, res: Response) => {
   const accessToken = createToken(
     jwtPayload,
     config.jwt_access_secret as string,
-    config.jwt_access_expires_in as string
+    // config.jwt_access_expires_in as string
+    Number(config.jwt_access_expires_in)
   );
   return accessToken;
 };
