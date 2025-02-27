@@ -4,7 +4,7 @@ type TSuccessResponse<T> = {
   message: string;
   statusCode: number;
   data: T | T[] | null;
-  meta?: T | null;
+  meta?: { page: number; limit: number; total: number; totalPage: number };
 };
 const sendResponse = <T>(res: Response, data: TSuccessResponse<T>) => {
   res.status(data.statusCode).json({

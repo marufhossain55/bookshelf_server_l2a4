@@ -41,8 +41,7 @@ const login = catchAsync(async (req: Request, res: Response) => {
 });
 
 const updateUser = catchAsync(async (req: Request, res: Response) => {
-  const { _id } = req.user;
-  console.log('id', req.user);
+  const { _id } = req.params;
   const body = req.body;
   const result = await AuthService.updateUser(_id, body);
   sendResponse(res, {
@@ -55,7 +54,7 @@ const updateUser = catchAsync(async (req: Request, res: Response) => {
 
 const singleUser = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  console.log(id, 'sonamia');
+  console.log(id, 'aaaaa');
   const result = await AuthService.singleUser(id);
   console.log(result, 'from controller');
   sendResponse(res, {
@@ -81,7 +80,6 @@ const resetPassword = catchAsync(async (req: Request, res: Response) => {
 const refreshToken = catchAsync(async (req, res) => {
   const { refreshToken } = req.cookies;
   const result = await AuthService.refreshToken(refreshToken, res);
-  // console.log(result,"controler result");
   sendResponse(res, {
     success: true,
     message: 'Login successful',

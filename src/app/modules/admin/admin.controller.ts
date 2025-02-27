@@ -7,6 +7,7 @@ import { AdminService } from './admin.service';
 const allUser = catchAsync(async (req, res) => {
   const result = await AdminService.getAllUser();
   sendResponse(res, {
+    success: true,
     statusCode: StatusCodes.OK,
     message: 'All user retrieve successfully',
     data: result,

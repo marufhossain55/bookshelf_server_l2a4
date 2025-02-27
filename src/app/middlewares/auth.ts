@@ -37,7 +37,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
       );
     }
     req.user = decoded;
-    console.log('dksks', req.user);
+    console.log('adsad', req.user);
     next();
   });
 };
