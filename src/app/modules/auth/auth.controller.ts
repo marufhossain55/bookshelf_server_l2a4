@@ -54,9 +54,9 @@ const updateUser = catchAsync(async (req: Request, res: Response) => {
 
 const singleUser = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  console.log(id, 'aaaaa');
+
   const result = await AuthService.singleUser(id);
-  console.log(result, 'from controller');
+
   sendResponse(res, {
     success: true,
     message: 'single user get successfully',

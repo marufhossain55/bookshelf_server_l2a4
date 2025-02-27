@@ -37,7 +37,6 @@ const auth = (...requiredRoles: TUserRole[]) => {
       );
     }
     req.user = decoded;
-    console.log('adsad', req.user);
     next();
   });
 };

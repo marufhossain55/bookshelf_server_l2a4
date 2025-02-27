@@ -39,7 +39,7 @@ const login = async (payload: { email: string; password: string }) => {
     role: user?.role,
     _id: user?._id,
   };
-  // console.log("jwtPayload")
+
   const token = jwt.sign(jwtPayload, config.jwt_access_secret as string, {
     expiresIn: '7d',
   });
@@ -48,23 +48,20 @@ const login = async (payload: { email: string; password: string }) => {
     jwtPayload,
     config.jwt_access_secret as string,
     // config.jwt_access_expires_in as string
-    Number(config.jwt_access_expires_in)
+    Number(config.jwt_access_expires_in as string)
   );
 
   const refreshToken = createToken(
     jwtPayload,
     config.jwt_refresh_secret as string,
     // config.jwt_refresh_expires_in as string
-    Number(config.jwt_access_expires_in)
+    Number(config.jwt_access_expires_in as string)
   );
 
   return { accessToken, refreshToken, user };
-  // console.log("token")
-  // return {token, user};
 };
 
 const updateUser = async (_id: string, user: TUser) => {
-  console.log('object', _id, user);
   const result = await User.findByIdAndUpdate(_id, user, { new: true });
   return result;
 };

@@ -128,7 +128,7 @@ const verifyPayment = async (order_id: string) => {
       if (book.quantity === 0) {
         book.inStock = false;
       }
-      console.log(book, 'book');
+
       await book.save();
     }
   }
