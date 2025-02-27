@@ -19,7 +19,7 @@ app.use(
 app.use('/api', router);
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  res.send('server is running ⚡⚡❤️');
 });
 app.use(globalErrorHandler);
 app.use('*', (req: Request, res: Response) => {
