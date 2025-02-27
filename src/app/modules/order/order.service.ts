@@ -120,7 +120,7 @@ const verifyPayment = async (order_id: string) => {
       if (!book || book.quantity < item.quantity) {
         throw new AppError(
           StatusCodes.CONFLICT,
-          `Not enough stock for ${book?.name}`
+          `Not enough stock for ${book?.title}`
         );
       }
 

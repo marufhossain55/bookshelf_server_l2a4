@@ -1,5 +1,5 @@
 import express from 'express';
-import { bookController } from './book.controller'; // Updated controller import
+import { bookController } from './book.controller';
 import { USER_ROLE } from '../auth/auth.interface';
 import auth from '../../middlewares/auth';
 
